@@ -24,6 +24,85 @@ public class CityGUI extends JDialog {
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
+
+        buttonFive.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(buttonSix.isVisible() == false){
+                    buttonSix.setText(buttonFive.getText());
+                    buttonFive.setText("");
+                    buttonSix.setVisible(true);
+                    buttonFive.setVisible(false);
+                }
+                if(buttonEigth.isVisible() == false){
+                    buttonEigth.setText(buttonFive.getText());
+                    buttonFive.setText("");
+                    buttonEigth.setVisible(true);
+                    buttonFive.setVisible(false);
+                }
+                if(buttonTwo.isVisible() == false){
+                    buttonTwo.setText(buttonSix.getText());
+                    buttonSix.setText("");
+                    buttonTwo.setVisible(true);
+                    buttonSix.setVisible(false);
+                }
+                if(buttonFour.isVisible() == false){
+                    buttonFour.setText(buttonFive.getText());
+                    buttonFive.setText("");
+                    buttonFour.setVisible(true);
+                    buttonFive.setVisible(false);
+                }
+                if(buttonFive.isVisible() == false){
+                    buttonFive.setText(buttonFive.getText());
+                    buttonFive.setText("");
+                    buttonFive.setVisible(true);
+                    buttonFive.setVisible(false);
+                }
+                if(isWinner()){
+                    JOptionPane.showMessageDialog(contentPane,"Ganaste!");
+                }
+            }
+        });
+        buttonSix.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(buttonNine.isVisible() == false){
+                    buttonNine.setText(buttonSix.getText());
+                    buttonSix.setText("");
+                    buttonNine.setVisible(true);
+                    buttonSix.setVisible(false);
+                }
+                if(buttonFive.isVisible() == false){
+                    buttonFive.setText(buttonSix.getText());
+                    buttonSix.setText("");
+                    buttonFive.setVisible(true);
+                    buttonSix.setVisible(false);
+                }
+                if(buttonThree.isVisible() == false){
+                    buttonThree.setText(buttonSix.getText());
+                    buttonSix.setText("");
+                    buttonThree.setVisible(true);
+                    buttonSix.setVisible(false);
+                }
+                if(isWinner()){
+                    JOptionPane.showMessageDialog(contentPane,"Ganaste!");
+                }
+            }
+        });
+        buttonSeven.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(buttonEigth.isVisible() == false){
+                    buttonEigth.setText(buttonSeven.getText());
+                    buttonSeven.setText("");
+                    buttonEigth.setVisible(true);
+                    buttonSeven.setVisible(false);
+                }
+                if(isWinner()){
+                    JOptionPane.showMessageDialog(contentPane,"Ganaste!");
+                }
+            }
+        });
         buttonEigth.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -75,6 +154,23 @@ public class CityGUI extends JDialog {
         }
     }
 
+    public void Move(JButton button, JButton button2)
+    {
+        button.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if(!button2.isVisible()){
+                    button2.setText(button.getText());
+                    button.setText("");
+                    button2.setVisible(true);
+                    button.setVisible(false);
+                }
+                if(isWinner()){
+                    JOptionPane.showMessageDialog(null,"Ganaste!");
+                }
+            }
+        });
+    }
     public static void main(String[] args) {
         CityGUI dialog = new CityGUI();
         dialog.pack();
